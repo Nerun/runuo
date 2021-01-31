@@ -442,7 +442,8 @@ namespace Server
 #if !MONO
 						NativeReader.Read( m_Statics.SafeFileHandle.DangerousGetHandle(), pTiles, length );
 #else
-						NativeReader.Read( m_Statics.Handle, pTiles, length );
+						NativeReader.Read( m_Statics.SafeFileHandle.DangerousGetHandle(), pTiles, length );
+//						NativeReader.Read( m_Statics.Handle, pTiles, length );
 #endif
 						if ( m_Lists == null )
 						{
@@ -521,7 +522,8 @@ namespace Server
 #if !MONO
 					NativeReader.Read( m_Map.SafeFileHandle.DangerousGetHandle(), pTiles, 192 );
 #else
-					NativeReader.Read( m_Map.Handle, pTiles, 192 );
+//					NativeReader.Read( m_Map.Handle, pTiles, 192 );
+					NativeReader.Read( m_Map.SafeFileHandle.DangerousGetHandle(), pTiles, 192 );
 #endif
 				}
 

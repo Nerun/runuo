@@ -106,7 +106,8 @@ namespace Server
 #if !MONO
 							NativeReader.Read( fsData.SafeFileHandle.DangerousGetHandle(), pTiles, 192 );
 #else
-							NativeReader.Read( fsData.Handle, pTiles, 192 );
+							NativeReader.Read( fsData.SafeFileHandle.DangerousGetHandle(), pTiles, 192 );
+//							NativeReader.Read( fsData.Handle, pTiles, 192 );
 #endif
 						}
 
@@ -176,7 +177,8 @@ namespace Server
 #if !MONO
 								NativeReader.Read( fsData.SafeFileHandle.DangerousGetHandle(), pTiles, length );
 #else
-								NativeReader.Read( fsData.Handle, pTiles, length );
+								NativeReader.Read( fsData.SafeFileHandle.DangerousGetHandle(), pTiles, length );
+//								NativeReader.Read( fsData.Handle, pTiles, length );
 #endif
 								StaticTile *pCur = pTiles, pEnd = pTiles + tileCount;
 
